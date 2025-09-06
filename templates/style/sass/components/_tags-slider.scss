@@ -1,0 +1,50 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/media-queries' as *;
+
+.tags-slider__container {
+  background-color: $grey--125;
+  padding: 24px 16px;
+  @media only screen and (min-width: $tablet) {
+    padding: 32px 64px;
+    @media only screen and (min-width: $desktop) {
+      padding: 32px 10vw;
+    }
+  }
+
+  h4 {
+    color: $grey--700;
+    margin-bottom: 8px;
+  }
+
+  .tags-slider {
+    position: relative;
+    display: flex;
+    align-items: center;
+    min-height: 40px;
+    height: auto;
+    // Additional 24px required to give a space for page (body) scrollbar
+    width: calc(100vw - (32px + 24px));
+    @media only screen and (min-width: $tablet) {
+      width: calc(100vw - (128px + 24px));
+      @media only screen and (min-width: $desktop) {
+        width: calc(100vw - (20vw + 24px));
+      }
+    }
+    
+    .tags-slider__tags-list {
+      @include overflow-no-scoll-bar;
+      width: inherit;
+      height: inherit;
+      display: flex;
+      column-gap: 8px;
+      list-style: none;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      padding-left: 0;
+      @media only screen and (min-width: $tablet) {
+        column-gap: 16px;
+      }
+    }
+  }
+}

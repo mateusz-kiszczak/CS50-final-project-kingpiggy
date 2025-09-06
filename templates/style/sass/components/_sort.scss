@@ -1,0 +1,203 @@
+@use '../abstracts/colors' as *;
+@use '../base/media-queries' as *;
+@use '../abstracts/mixins' as *;
+
+.pictures__sort--home {
+  color: $grey--400;
+  font-weight: 600;
+  font-size: 1.125rem;
+  display: flex;
+  gap: 8px;
+  @media only screen and (min-width: $tablet) {
+    gap: 16px;
+  }
+
+  .sort--button--home {
+    @include transition--150(color);
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    color: $grey--400;
+
+    &:hover {
+      @include transition--150(color);
+      color: $grey--800;
+    }
+  }
+  
+  .sort--active--home {
+    color: $grey--800;
+  }
+}
+
+.pictures__sort-and-filter {
+  display: flex;
+  justify-content: space-between;
+
+  .pictures__sort-and-filter__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 8px;
+    cursor: pointer;
+    
+    .sort-and-filter-button {
+      @include transition--400(color);
+      padding: 0;
+      margin: 0;
+      background-color: transparent;
+      border: none;
+      color: $grey--800;
+      font-weight: 600;
+
+      &:hover {
+        @include transition--150(color);
+        color: $pink--700;
+      }
+    }
+
+    .sort-and-filter-icon-up {
+      transform: rotate(180deg);
+    }
+  }
+
+  .pictures__sort-and-filter__filter {
+    display: flex;
+    gap: 16px;
+
+    @media only screen and (max-width: $mobile) {
+      flex-direction: column;
+    }
+    
+    .pictures__sort-and-filter__filter__divider {
+      color: $grey--300;
+      font-weight: 600;
+      display: none;
+      @media only screen and (min-width: $mobile) {
+        display: block;
+      }
+
+    }
+    
+    .pictures__sort-and-filter__filter__divider--hr {
+      color: $grey--300;
+      background-color: $grey--300;
+      border: none;
+      height: 2px;
+      display: none;
+      @media only screen and (max-width: $mobile) {
+        display: block;
+      }
+    }
+  }
+}
+
+.pictures_pages {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  .pictures_pages__page-form,
+  .pictures_pages__page-form--bottom-form {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    .pictures_pages__page-form__input {
+      @include transition--400(background-color);
+      font-weight: 600;
+      color: $grey--900;
+      background-color: $pink--100;
+      border: 1px solid $grey--500;
+      border-radius: 10px;
+      box-shadow: 0 2px 2px 0 rgba(33, 33, 33, 0.3);
+      font-size: 1rem;
+      width: 50px;
+      padding: 8px 16px;
+
+    
+      &:hover {
+        @include transition--150(background-color);
+        background-color: $grey--125;
+      }
+    }
+  }
+
+  .pictures_pages__page-form--bottom-form,
+  .pictures_pages__shows {
+    @media only screen and (max-width: $mobile) {
+      display: none;
+    }
+  }
+}
+
+.pictures__container__sort-options,
+.pictures__container__sort-options--sort {
+  @include round-border;
+  @include transition--400(background-color);
+  color: $grey--400;
+  font-weight: 600;
+  font-size: 1.125rem;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  flex-direction: row;
+
+  @media only screen and (max-width: $mobile) {
+    flex-direction: column;
+  }
+
+  @media only screen and (min-width: $tablet) {
+    gap: 16px;
+  }
+
+  .sort-option-button {
+    @include transition--150(color);
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+    border: none;
+    color: $grey--400;
+
+    &:hover {
+      @include transition--150(color);
+      color: $grey--800;
+    }
+
+    &--active {
+      @extend .sort-option-button;
+      @include transition--150(color);
+      color: $grey--800;
+    }
+  }
+  
+  &:hover {
+    @include transition--150(background-color);
+    background-color: $grey--125;
+  }
+}
+
+.pictures__container__sort-options--sort {
+  justify-content: flex-end;
+}
+
+.pictures-sort-options__divider {
+  display: none;
+  @media only screen and (min-width: $mobile) {
+    display: block;
+  }
+}
+
+.pictures-sort-options__divider--hr {
+  color: $grey--300;
+  background-color: $grey--300;
+  border: none;
+  height: 1px;
+  width: 50%;
+  margin: 16px;
+  @media only screen and (min-width: $mobile) {
+    display: none;
+  }
+}

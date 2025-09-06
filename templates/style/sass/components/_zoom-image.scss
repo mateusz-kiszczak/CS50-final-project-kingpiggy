@@ -1,0 +1,23 @@
+@use '../abstracts/colors' as *;
+@use '../base/media-queries' as *;
+
+#zoom-container {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: $background--overlay--darker;
+  z-index: 999;
+  padding: 16px;
+  cursor: zoom-out;
+  @media only screen and (min-width: $tablet) {
+    padding: 32px;
+  }
+  
+  .zoom-image {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+  }
+}

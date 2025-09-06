@@ -1,0 +1,237 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/media-queries' as *;
+
+.nav-grid-container {
+  @include display-grid(auto 1fr, 1fr);
+  height: 100vh;
+}
+
+
+// Navigation Bar
+.nav-bar__container {
+  background-color: $grey--800;
+  border-bottom: 1px solid $grey--400;
+  padding: 16px;
+  @media only screen and (min-width: $tablet) {
+    padding: 24px 64px;
+    @media only screen and (min-width: $desktop) {
+      padding: 24px 10vw;
+    }
+  }
+
+  .nav-bar,
+  .nav-bar--others {
+    @include display-grid(auto, auto auto);
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-bar__logo img {
+      width: auto;
+      height: 48px;
+      @media only screen and (min-width: $tablet) {
+        height: 64px;
+      }
+    }
+    
+    .nav-bar__buttons {
+      @include display-grid(auto, auto auto);
+      // gap: 1rem; // Only when User Button is visible
+      align-items: center;
+      justify-content: end;
+
+      .nav-bar__user {
+        padding: 4px;
+        cursor: pointer;
+        @media only screen and (min-width: $tablet) {
+          padding: 12px;
+        }
+
+        .nav-bar__user--logged-in,
+        .nav-bar__user--logged-out {
+          width: 40px;
+          height: 40px;
+          object-fit: cover;
+        }
+
+        .nav-bar__user--logged-in {
+          border-radius: 50%;
+        }
+      }
+
+      .nav-bar__nav-control {
+        padding: 8px;
+        cursor: pointer;
+        @media only screen and (min-width: $tablet) {
+          padding: 16px;
+        }
+
+        img {
+          width: 32px;
+          height: 32px;
+        }
+      }
+    }
+  }
+
+  .nav-bar--others {
+    @include display-grid(auto, auto 1fr auto);
+    gap: 16px;
+    @media only screen and (min-width: $mobile) {
+      gap: 48px;
+      @media only screen and (min-width: $desktop) {
+        gap: 6vw;
+      }
+    }
+  }
+}
+
+
+// Navigation Content (Search and Links)
+.nav__container {
+  @include container--padding(32px, 16px);
+  @include display-grid(1fr, auto);
+  @include overflow-no-scoll-bar;
+  background-color: $grey--800;
+  overflow: auto;
+  @media only screen and (min-width: $tablet) {
+    @include container--padding(64px, 64px);
+    @media only screen and (min-width: $desktop) {
+      @include container--padding(64px, 10vw);
+    }
+  }
+}
+
+.nav,
+.nav--others {
+  @include display-grid(auto auto 1fr, auto);
+  row-gap: 32px;
+  @media only screen and (min-width: $tablet) {
+    row-gap: 64px;
+  }
+  
+  h2 {
+    color: $grey--125;
+  }
+  
+  a, p {
+    color: $grey--200;
+  }
+
+  a {
+    @include transition--400(text-decoration);
+    text-decoration: underline solid $grey--800 40% ;
+
+    &:hover {
+      @include transition--150(text-decoration);
+      text-decoration: underline solid $pink--200 40%;
+    }
+  }
+
+  ul {
+    padding-left: 0;
+    list-style: none;
+  }
+
+  .nav-links {
+    @include display-grid(repeat(4, auto), auto);
+    @media only screen and (min-width: $laptop) {
+      @include display-grid(1fr 1fr, 1fr 1fr);
+      @media only screen and (min-width: $desktop) {
+        @include display-grid(auto, repeat(4, 1fr));
+      }
+    }
+
+    .nav-links__section-container {
+      padding: 0 32px;
+      @media only screen and (min-width: $desktop) {
+        @include display-grid(1fr, auto);
+        justify-content: center;
+        border-right: 1px solid $grey--400;
+      }
+      
+      &:first-of-type {
+        .nav-links__section {
+          padding: 0 0 32px 0;
+          @media only screen and (min-width: $desktop) {
+            padding: 0;
+          }
+        }
+      }
+
+      &:nth-of-type(2) {
+        .nav-links__section {
+          @media only screen and (min-width: $laptop) {
+            padding: 0 0 32px 0;
+            @media only screen and (min-width: $desktop) {
+              padding: 0;
+            }
+          }
+        }
+      }
+
+      &:nth-of-type(3) {
+        .nav-links__section {
+          @media only screen and (min-width: $desktop) {
+            padding: 0;
+          }
+        }
+      }
+
+      &:last-of-type {
+        @media only screen and (min-width: $desktop) {
+          border: none;
+        }
+        .nav-links__section {
+          border: none;
+          padding: 32px 0 0 0;
+          @media only screen and (min-width: $desktop) {
+            padding: 0;
+          }
+        }
+      }
+
+      .nav-links__section {
+        padding: 32px 0;
+        border-bottom: 1px solid $grey--400;
+        @media only screen and (min-width: $laptop) {
+          height: 100%;
+          border: none;
+        }
+
+        div {
+          @include display-grid(auto auto, auto);
+          row-gap: 16px;
+          
+          ul {
+            @include display-grid(auto, auto);
+            row-gap: 12px;
+          }
+        }
+      }
+    }
+  }
+
+  .nav-copyrights__container {
+    text-align: center;
+    @media only screen and (min-width: $desktop) {
+      align-self: end;
+    }
+
+    p {
+      color: $grey--400;
+    }
+  }
+}
+
+.nav--others {
+  @include display-grid(auto 1fr, auto);
+}
+
+
+// Helpers
+
+// After the .nav__container get class .hide, apply this class to .nav-grid-container to get rid of navigation high.
+.nav-closed {
+  height: auto;
+}

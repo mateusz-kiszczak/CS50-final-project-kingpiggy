@@ -1,0 +1,46 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+
+.alert {
+  @include round-border;
+
+  width: 100%;
+  margin-bottom: 36px;
+
+  &--success {
+    @extend .alert;
+
+    background-color: hsl(119, 95%, 92%);
+    border-color: hsl(118, 55%, 60%);
+
+  }
+
+  &--error {
+    @extend .alert;
+
+    background-color: $pink--100;
+    border-color: $pink--400;
+
+  }
+
+  &--info {
+    @extend .alert;
+
+    background-color: hsl(225, 100%, 97%);
+    border-color: hsl(225, 55%, 60%);
+
+  }
+
+  &--warning {
+    @extend .alert;
+
+    background-color: hsl(60, 100%, 75%);
+    border-color: hsl(49, 63%, 34%);
+
+  }
+}
+
+.alert-flash {
+  margin: 16px;
+  width: auto;
+}

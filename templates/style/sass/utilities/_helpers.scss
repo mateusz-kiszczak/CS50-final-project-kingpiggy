@@ -1,0 +1,17 @@
+.hide {
+  display: none;
+}
+
+.visible {
+  opacity: 1;
+  transition: opacity 250ms;
+}
+
+.not-visible {
+  opacity: 0;
+  transition: opacity 250ms;
+}
+
+.relative {
+  position: relative;
+}

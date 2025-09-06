@@ -1,0 +1,93 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/media-queries' as *;
+
+.list-container {
+    padding: 16px 32px;
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    @media only screen and (min-width: $tablet) {
+      padding: 64px 64px 32px 64px;
+      gap: 32px;
+      @media only screen and (min-width: $desktop) {
+            padding: 64px 10vw 32px 10vw;
+            gap: 48px;
+         }
+    }
+}
+
+.list__top-searches {
+	display: flex;
+	flex-direction: column;
+	gap: 24px;
+
+	.list__top-searches__tags-container {
+		width: inherit;
+		display: flex;
+		flex-direction: row;
+		flex-wrap: wrap;
+		gap: 12px 8px;
+	}
+}
+
+
+.list__tags {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    
+    .list__tags-container {
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+
+        @media only screen and (min-width: $mobile) {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: auto;
+            gap: 24px;
+            @media only screen and (min-width: $tablet) {
+                grid-template-columns: repeat(3, 1fr);
+                @media only screen and (min-width: $laptop) {
+                    grid-template-columns: repeat(4, 1fr);
+                    @media only screen and (min-width: $desktop) {
+                        gap: 32px;
+                    }
+                }
+            }
+        }
+
+        .list__tags__header_and_list {
+            display: flex;
+            flex-direction: column;
+            @media only screen and (min-width: $tablet) {
+                flex-direction: row;
+                gap: 24px;
+                @media only screen and (min-width: $desktop) {
+                  gap: 32px;
+                }
+            }
+
+            .list__tags__header_and_list__tags {
+                list-style: none;
+                padding-left: 0;
+
+                li {
+                    a {
+                        @include transition--400(all);
+                        color: $grey--700;
+                        padding: 4px;
+
+                        &:hover {
+                            @include transition--150(all);
+                            background-color: $pink--100;
+                            color: $grey--900;
+                        }
+                    }
+                }
+            }
+        }
+        
+    }
+}

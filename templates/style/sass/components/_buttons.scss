@@ -1,0 +1,400 @@
+@use '../abstracts/colors' as *;
+@use '../base/media-queries' as *;
+@use '../abstracts/mixins' as *;
+
+
+// Search Button
+.search-button {
+  border: none;
+  background-color: transparent;
+
+  img {
+    margin: 8px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+.search-button--others {
+  border: none;
+  background-color: transparent;
+  @media only screen and (max-width: $tablet) {
+    display: none;
+  }
+
+  img {
+    margin: 8px;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+
+// Tags/Categories Slider Button
+.tag-button {
+  @include transition--400(background-color);
+  cursor: pointer;
+  background-color: $grey--100;
+  white-space: nowrap;
+  padding: 4px 12px;
+  border: {
+    width: 1px;
+    style: solid;
+    color: $grey--700;
+    radius: 10px;
+  }
+  @media only screen and (min-width: $tablet) {
+    padding: 8px 16px;
+  }
+
+  a {
+    color: $grey--700;
+  }
+
+  &:hover {
+    @include transition--150(background-color border-color);
+    border-color: $grey--800;
+    background-color: $pink--100;
+    
+    a {
+      color: $grey--800;
+    }
+  }
+}
+
+.tags-slider__button,
+.tags-slider__button {
+  border: none;
+  background-color: $grey--125;
+  padding: 8px;
+  padding-right: 0;
+  opacity: 0;
+  position: absolute;
+  z-index: 1;
+  transition: opacity 250ms;
+  @media only screen and (min-width: $tablet) {
+    padding: 12px 0 12px 8px;
+  }
+
+  img {
+    height: 24px;
+    width: auto;
+  }
+}
+
+.tags-slider__button--left {
+  box-shadow: 2px 0 10px 5px $grey--125;
+  top: 0;
+  left: 0;
+  transform: rotate(180deg);
+}
+
+.tags-slider__button--right {
+  box-shadow: -2px 0 10px 5px $grey--125;
+  top: 0;
+  right: 0;
+}
+
+
+// Scroll Up Button
+.scroll-up-button {
+  @include transition--150(all);
+  background-color: $grey--800;
+  border: 3px solid $grey--125;
+  border-radius: 50%;
+  box-shadow: 0 0 8px 2px rgba(33, 33, 33, 0.3);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 48px;
+  height: 48px;
+  position: fixed;
+  z-index: 999;
+  right: 16px;
+  bottom: 16px;
+  opacity: 0;
+  @media only screen and (min-width: $tablet) {
+    width: 64px;
+    height: 64px;
+    right: 64px;
+    @media only screen and (min-width: $desktop) {
+      right: 10vw;
+      bottom: 24px;
+    }
+  }
+
+  &:hover {
+    @include transition--150(all);
+    background-color: $grey--600;
+  }
+  
+  img {
+    width: 24px;
+    height: 24px;
+    @media only screen and (min-width: $tablet) {
+      width: 32px;
+      height: 32px;
+    }
+  }
+}
+
+
+// Load More Button
+.button-default--small,
+.button-default--medium,
+.button-default--large,
+.button-default--small--pink,
+.button-default--medium--pink,
+.button-default--large--pink,
+.button-default--small--red,
+.button-default--medium--red,
+.button-default--large--red,
+.button--dashboard-nav--open,
+.button--dashboard-nav--close {
+  @include transition--400(background-color);
+  font-weight: 600;
+  color: $grey--900;
+  background-color: $grey--125;
+  border: 1px solid $grey--500;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgba(33, 33, 33, 0.3);
+  font-size: 1.125rem;
+  @media only screen and (min-width: $tablet) {
+    font-size: 1.25rem;
+  }
+
+  &:hover {
+    @include transition--150(background-color);
+    background-color: $pink--100;
+  }
+}
+
+.button-default--small--pink,
+.button-default--medium--pink,
+.button-default--large--pink {
+  @include transition--400(all);
+  color: $grey--900;
+  background-color: $pink--100;
+  @media only screen and (max-width: 345px) {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    @include transition--150(all);
+    background-color: $pink--700;
+    color: $grey--100;
+  }
+}
+
+.button-default--small--red,
+.button-default--medium--red,
+.button-default--large--red {
+  @include transition--400(all);
+  color: $grey--125;
+  background-color: $pink--700;
+  @media only screen and (max-width: 345px) {
+    font-size: 1rem;
+  }
+
+  &:hover {
+    @include transition--150(all);
+    background-color: $grey--200;
+    color: $grey--700;
+  }
+}
+
+.button-default--small,
+.button-default--small--pink,
+.button-default--small--red {
+  padding: 8px 32px;
+}
+
+.button-default--medium,
+.button-default--medium--pink {
+  padding: 16px 32px;
+}
+
+.button-default--large,
+.button-default--large--pink {
+  padding: 24px 48px;
+}
+
+.button--dashboard-nav--open,
+.button--dashboard-nav--close {
+  padding: 24px 32px;
+  color: $grey--100;
+  background-color: $grey--800;
+  display: flex;
+  gap: 16px;
+
+  &:hover {
+    @include transition--150(background-color);
+    background-color: $pink--700;
+  }
+}
+
+.button--dashboard-nav--close {
+  background-color: $grey--125;
+  color: $grey--800;
+
+  &:hover {
+    @include transition--150(background-color);
+    background-color: $pink--150;
+  }
+}
+
+
+// Love Button
+.love-button--home {
+  @include transition--400(all);
+  background-color: transparent;
+  border: {
+    width: 2px;
+    color: $grey--400;
+    style: solid;
+    radius: 10px;
+  }
+  width: 48px;
+  height: 48px;
+  padding: 8px;
+  @media only screen and (min-width: $laptop) {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    border-width: 1px;
+    @media only screen and (min-width: $desktop) {
+      width: 40px;
+      height: 40px;
+      padding: 6px;
+      border-width: 1px;
+    }
+  }
+
+  &:hover {
+    @include transition--150(all);
+    border-color: $grey--100;
+    background-color: $background--overlay;
+  }
+}
+
+
+// Form Button
+
+.form-button {
+  @include transition--400(all);
+  width: fit-content;
+  padding: 16px 32px;
+  border: {
+    width: 1px;
+    color: $grey--500;
+    style: solid;
+    radius: 10px;
+  };
+  font-size: 1.125rem;
+  @media only screen and (min-width: 768px) {
+    font-size: 1.11rem;
+  }
+  font-weight: 600;
+
+  &:hover {
+    @include transition--150(all);
+    cursor: pointer;
+  }
+}
+
+.form-button--pink {
+  color: $grey--800;
+  background-color: $pink--100;
+
+  &:hover {
+    color: $grey--125;
+    background-color: $pink--700;
+  }
+}
+
+.form-button--red {
+  color: $grey--125;
+  background-color: $pink--700;
+
+  &:hover {
+    background-color: $pink--800;
+  }
+}
+
+.form-button--disabled {
+  color: $grey--600;
+  background-color: $grey--125;
+
+  &:hover {
+    cursor: not-allowed;
+  }
+}
+
+.form-button--register {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 100%;
+}
+
+
+// Option Button (Checkbox)
+.toggle-button {
+  border: solid 1px $pink--500;
+  border-radius: 50px;
+  background-color: $pink--700;
+  width: 100px;
+  height: 50px;
+  box-shadow: inset 0 2 16px $grey--800;
+  position: relative;
+  cursor: pointer;
+
+  div {
+    background-color: $grey--100;
+    border: solid 1px $grey--500;
+    box-shadow: 0 2 2px $grey--800;
+    border-radius: 100%;
+    width: 38px;
+    height: 38px;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+  }
+
+  &--off {
+    @extend .toggle-button;
+      background-color: $grey--150;
+      border-color: $grey--500;
+
+      div {
+        background-color: $grey--500;
+        border-color: $grey--400;
+        right: auto;
+        left: 5px;
+      }
+  }
+}
+
+
+// Search page
+
+.search__next-button {
+  @include transition--400(background-color);
+  font-weight: 600;
+  color: $grey--900;
+  background-color: $grey--125;
+  border: 1px solid $grey--500;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px 0 rgba(33, 33, 33, 0.3);
+  font-size: 1.125rem;
+  padding: 8px 32px;
+  
+  @media only screen and (min-width: $tablet) {
+    font-size: 1.25rem;
+    padding: 16px 32px;
+  }
+
+  &:hover {
+    @include transition--150(background-color);
+    background-color: $pink--100;
+  }
+}

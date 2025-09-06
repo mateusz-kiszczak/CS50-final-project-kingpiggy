@@ -1,0 +1,48 @@
+// GREY SCALE
+
+$grey--100: #fcfcfc;
+$grey--125: #f7f7f7;
+$grey--150: #ebebeb;
+$grey--200: #e0e0e0;
+$grey--250: #d1d1d1;
+$grey--300: #bfbfbf;
+$grey--350: #b0b0b0;
+$grey--400: #a1a1a1;
+$grey--500: #808080;
+$grey--600: #616161;
+$grey--700: #404040;
+$grey--800: #212121;
+$grey--900: #070707;
+
+
+// PINK SCALE
+
+$pink--100: #FFEDF2;
+$pink--150: #FFD9E3;
+$pink--200: #FFC6D6;
+$pink--250: #FFB2C8;
+$pink--300: #FE92B0;
+$pink--350: #FE7FA3;
+$pink--400: #E96187;
+$pink--500: #D13863;
+$pink--600: #C01C4A;
+$pink--700: #960830;
+$pink--800: #6D0522;
+$pink--900: #380110;
+
+
+// BACKGROUND
+
+$background--primary: $grey--100;
+$background--second: $grey--125;
+
+
+// COLOR
+
+$text--primary: $grey--800;
+
+
+// BACKGROUND OVERLAY
+
+$background--overlay: rgba(33, 33, 33, .5); // $grey--800 -> 50%
+$background--overlay--darker: rgba(7, 7, 7, .95); // $grey--800 -> 50%

@@ -1,0 +1,78 @@
+@use '../abstracts/colors' as *;
+
+// CONTAINER
+@mixin container--padding($vert, $horz) {
+  padding: $vert $horz;
+}
+
+
+// DISPLAY GRID
+@mixin display-grid($rows: auto, $cols: auto) {
+  display: grid;
+  grid-template-rows: $rows;
+  grid-template-columns: $cols;
+}
+
+
+// BOX SHADOW
+@mixin box-shadow--default {
+  box-shadow: 0 4px 4px 0 rgba(33, 33, 33, 0.3);
+}
+
+@mixin box-shadow--small {
+  box-shadow: 0 2px 2px 0 rgba(33, 33, 33, 0.3);
+}
+
+
+// TEXT SHADOW
+@mixin text-shadow--default {
+  text-shadow: 0 4px 4px rgba(33, 33, 33, 0.3);
+}
+
+
+// OVERFLOW SCROLL NO SCROLL BAR
+@mixin overflow-no-scoll-bar {
+  overflow: auto;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;  /* Chrome, Safari and Opera */
+  }
+}
+
+// TRANSITION
+@mixin transition--150($properties) {
+  transition: $properties 150ms;
+}
+
+@mixin transition--400($properties) {
+  transition: $properties 400ms;
+}
+
+@mixin round-border {
+  @include box-shadow--small;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 24px;
+  background-color: $grey--100;
+  border: {
+    width: 1px;
+    color: $grey--250;
+    style: solid;
+    radius: 10px;
+  };
+}
+
+
+// INPUT 
+
+@mixin input-on-focus {
+  outline: none;
+  border: {
+    color: $pink--500;
+    width: 2px;
+  }
+  box-shadow: 0 0 2px 1px rgba(209, 56, 99, 0.3);
+}

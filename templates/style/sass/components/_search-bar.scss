@@ -1,0 +1,106 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/media-queries' as *;
+
+.search-bar {
+  width: 100%;
+  background-color: $grey--100;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: {
+    radius: 256px;
+    color: $grey--400;
+    width: 1px;
+    style: solid;
+  }
+  transition: all 150ms;
+
+  &:has(input:focus) {
+    box-shadow: inset 0 0 1px 3px $pink--300;
+    border-color: $pink--300;
+    transition: all 150ms;
+  }
+  
+  &:hover {
+    box-shadow: inset 0 0 1px 3px $pink--200;
+    border-color: $pink--200;
+    transition: all 150ms;
+  }
+
+  input {
+    border: none;
+    background-color: inherit;
+    color: $grey--600;
+    width: 100%;
+    line-height: normal; 
+    
+    &:focus {
+      outline: none;
+      background-color: inherit;
+    }
+
+    &:focus::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+
+    &::placeholder {
+      font-size: 20px;
+      color: $grey--400;
+    }
+  }
+}
+
+.search-bar--others {
+  width: 100%;
+  background-color: $grey--100;
+  padding: 12px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border: {
+    radius: 256px;
+    color: $grey--400;
+    width: 1px;
+    style: solid;
+  }
+  transition: all 150ms;
+  @media only screen and (min-width: $tablet) {
+    padding: 8px 32px;
+  }
+
+  &:has(input:focus) {
+    box-shadow: inset 0 0 1px 3px $pink--300;
+    border-color: $pink--300;
+    transition: all 150ms;
+  }
+  
+  &:hover {
+    box-shadow: inset 0 0 1px 3px $pink--200;
+    border-color: $pink--200;
+    transition: all 150ms;
+  }
+
+  input {
+    border: none;
+    background-color: inherit;
+    color: $grey--600;
+    width: 100%;
+    line-height: normal; 
+    
+    &:focus {
+      outline: none;
+      background-color: inherit;
+    }
+
+    &:focus::-webkit-search-cancel-button {
+      -webkit-appearance: none;
+    }
+
+    &::placeholder {
+      font-size: 16px;
+      color: $grey--400;
+    }
+  }
+}

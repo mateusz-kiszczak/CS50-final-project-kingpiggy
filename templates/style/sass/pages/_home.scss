@@ -1,0 +1,112 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/media-queries' as *;
+
+// Hero Section
+.hero-bg-container {
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  .hero-bg__overlay {
+    background-color: $background--overlay;
+  }
+}
+
+.hero-section__container {
+  padding: 128px 16px;
+  @media only screen and (min-width: $tablet) {
+    padding: 160px 64px;
+    @media only screen and (min-width: $laptop) {
+      padding: 192px 0;
+    }
+  }
+
+  .hero-section {
+    @include display-grid(auto auto, auto);
+    row-gap: 16px;
+    @media only screen and (min-width: $tablet) {
+      row-gap: 32px;
+      @media only screen and (min-width: $laptop) {
+        width: clamp(50vw, 750px, 90vw);
+        margin: 0 auto;
+      }
+    }
+
+    .hero-section__header-container {
+      @include display-grid(auto auto, auto);
+      row-gap: 8px;
+      @media only screen and (min-width: $tablet) {
+        row-gap: 16px;
+      }
+
+      h1, p {
+        @include text-shadow--default;
+        text-align: center;
+        color: $grey--100;
+        @media only screen and (min-width: $tablet) {
+          text-align: start;
+        }
+      }
+      
+      h1 {
+        font-weight: 900;
+      }
+
+      p {
+        font-weight: 600;
+      }
+    }
+
+    .hero-section__search-bar-container {
+      @include text-shadow--default;
+      @include display-grid(auto auto, auto);
+      row-gap: 4px;
+      @media only screen and (min-width: $tablet) {
+        row-gap: 8px;
+      }
+      
+      p, a {
+        @include text-shadow--default;
+        color: $grey--100;
+        font-weight: 600;
+      }
+
+      a {
+        text-decoration: underline;
+        text-decoration-thickness: 2px;
+      }
+
+      .hero-section__license-link {
+        text-align: start;
+        @media only screen and (min-width: $tablet) {
+          text-align: end;
+        }
+      }
+    }
+  }
+}
+
+// License Section
+.home__license {
+  background-color: $grey--125;
+  display: flex;
+  flex-direction: column;
+  padding: 64px 16px;
+  gap: 24px;
+  @media only screen and (min-width: $tablet) {
+    padding: 96px 64px;
+    gap: 32px;
+    @media only screen and (min-width: $desktop) {
+      padding: 96px 10vw;
+    }
+  }
+
+  .home__license__description {
+    text-align: justify;
+  }
+
+  .home__license__link {
+    color: $pink--500;
+    font-weight: 600;
+  }
+}

@@ -1,0 +1,19 @@
+@use '../abstracts/colors' as *;
+@use '../base/media-queries' as *;
+
+.divider {
+  color: $grey--400;
+  background-color: $grey--400;
+  border: none;
+  height: 1px;
+}
+
+.divider--user-page {
+  margin: 0 16px;
+  @media only screen and (min-width: $tablet) {
+    margin: 0 128px;
+    @media only screen and (min-width: $desktop) {
+      margin: 0 20vw;
+    }
+  }
+}

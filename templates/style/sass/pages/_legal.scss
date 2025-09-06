@@ -1,0 +1,19 @@
+@use '../abstracts/colors' as *;
+@use '../abstracts/mixins' as *;
+@use '../base/media-queries' as *;
+
+.legal-container {
+  	padding: 16px 32px;
+  	display: flex;
+  	flex-direction: column;
+  	gap: 16px;
+  	@media only screen and (min-width: $tablet) {
+    	padding: 64px 64px 32px 64px;
+		gap: 24px;
+    	@media only screen and (min-width: $desktop) {
+      		padding: 64px 10vw 32px 10vw;
+			  gap: 32px;
+   		}
+  	}
+}
+
