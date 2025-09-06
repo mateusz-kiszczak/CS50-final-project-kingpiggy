@@ -2,7 +2,7 @@
 
 ## Video Demo: [Kingpiggy Video Demo](https://youtu.be/U5UND_XCUCk)
 
-## Live Demo: [Kingpiggy Video Demo](https://kingpiggy.com/)
+## Live Demo: [Kingpiggy Live Website](https://kingpiggy.com/)
 
 ## Description
 
