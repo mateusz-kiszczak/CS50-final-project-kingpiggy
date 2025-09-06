@@ -1,14 +1,8 @@
 # Kingpiggy - CS50's Final Project
 
----
-
 ## Video Demo: [Kingpiggy Video Demo](https://youtu.be/U5UND_XCUCk)
 
----
-
 ## Live Demo: [Kingpiggy Video Demo](https://kingpiggy.com/)
-
----
 
 ## Description
 
